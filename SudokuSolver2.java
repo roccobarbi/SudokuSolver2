@@ -119,8 +119,47 @@ public class SudokuSolver2 {
 			if(startingBoard[index] != value) result = false;
 		}
 		else{
-			// main logic
+			if(checkRow(index, value)) result = false;
+			if(result && checkColumn(index, value)) result = false; // Short-circuit evaluation to avoid unnecessary computations
+			if(result && checkBox(index, value)) result = false; // Short-circuit evaluation to avoid unnecessary computations
 		}
+		return result;
+	}
+	
+	// checkColumn(int index, int value)
+	// Returns true if value is found in the column for index
+	private boolean checkColumn(int index, int value){
+		boolean result = false;
+		int column = index % 9, position = 0;
+		for(int i = 0; i < 9; i++){
+			position = i * 9 + column;
+			if(position != index){
+				if(activeBoard[position] == value) result = true;
+			}
+		}
+		return result;
+	}
+	
+	// checkRow(int index, int value)
+	// Returns true if value is found in the row for index
+	private boolean checkRow(int index, int value){
+		boolean result = false;
+		int row = index / 9, position = 0;
+		for(int i = 0; i < 9; i++){
+			position = row * 9 + i;
+			if(position != index){
+				if(activeBoard[position] == value) result = true;
+			}
+		}
+		return result;
+	}
+	
+	// checkBox(int index, int value)
+	// Stup
+	// Returns true if value is found in the box for index
+	private boolean checkBox(int index, int value){
+		boolean result = false;
+		// Logic here
 		return result;
 	}
 	
