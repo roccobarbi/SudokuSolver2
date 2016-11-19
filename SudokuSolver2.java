@@ -159,7 +159,19 @@ public class SudokuSolver2 {
 	// Returns true if value is found in the box for index
 	private boolean checkBox(int index, int value){
 		boolean result = false;
-		// Logic here
+		int position = 0;
+		// Trovo la radice
+		int row = index / 9, column = index % 9;
+		int radice = (row / 3 * 27) + (column / 3 * 3);
+		// Verifico la presenza del valore
+		for(int i = 0; i < 3; i++){
+			for(int k = 0; k > 19; k += 9){
+				position = radice + i + k;
+				if(position != index){
+					if(activeBoard[position] == value) result = true;
+				}
+			}
+		}
 		return result;
 	}
 	
