@@ -131,11 +131,11 @@ public class SudokuSolver2 {
 	private boolean solvePosition(int index, int value){
 		if(checkPosition(index, value)){
 			if(index == activeBoard.length - 1){
-				activeBoard[index] = value;
+				if(!fixedPositions[index]) activeBoard[index] = value;
 				return true;
 			}
 			else{
-				activeBoard[index] = value;
+				if(!fixedPositions[index]) activeBoard[index] = value;
 				for(int i = 1; i < 10; i++){
 					if(solvePosition(index + 1, i)) return true;
 				}
