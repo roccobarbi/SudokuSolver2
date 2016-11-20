@@ -6,6 +6,7 @@ package SudokuSolver2;
 
 public class SudokuSolver2 {
 	private static final int BOARD_LENGTH = 81;
+	private static final boolean DEBUG = true;
 	
 	private int[] activeBoard;
 	private final int[] startingBoard;
@@ -52,20 +53,25 @@ public class SudokuSolver2 {
 					+ " elements. That exact number of elements is required.");
 			System.exit(0);
 		}
+		if(DEBUG) System.out.println("DEBUG - object created.");
 	}
 	
 	// Private accessors
 	
 	private void setActiveBoard(){
-		for(int i = 0; i < BOARD_LENGTH; i++){
+		int i;
+		for(i = 0; i < BOARD_LENGTH; i++){
 			activeBoard[i] = startingBoard[i];
 		}
+		if(DEBUG) System.out.println("DEBUG - active board set after " + i + " steps.");
 	}
 	
 	private void setFixedPositions(){
-		for(int i = 0; i < BOARD_LENGTH; i++){
+		int i;
+		for(i = 0; i < BOARD_LENGTH; i++){
 			fixedPositions[i] = startingBoard[i] == 0 ? false : true;
 		}
+		if(DEBUG) System.out.println("DEBUG - fixed positions set after " + i + " steps.");
 	}
 	
 	// Public accessors
