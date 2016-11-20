@@ -212,8 +212,13 @@ public class SudokuSolver2 {
 	 * Returns true when the puzzle is solved, false if it was unable to solve it.
 	 */
 	public boolean solve(){
+		timeStart = System.currentTimeMillis();
 		for(int i = 1; i < 10; i++){
-			if(solvePosition(1, i)) return true;
+			if(solvePosition(1, i)){
+				timeEnd = System.currentTimeMillis();
+				duration = timeEnd - timeStart;
+				return true;
+			}
 		}
 		return false;
 	}

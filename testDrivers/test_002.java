@@ -24,6 +24,9 @@ public class test_002 {
 		else{
 			System.out.println("Unable to solve the puzzle after " + solveIt.getIterations() + " iterations.");
 		}
+		
+		System.out.println("It took " + solveIt.getDuration() + " milliseconds to solve this puzzle.");
+		System.out.println();
 		for(int i = 0; i < 9; i++){
 			for(int k = 0; k < 9; k++){
 				System.out.print(solvedBoard[i * 9 + k] + " ");
