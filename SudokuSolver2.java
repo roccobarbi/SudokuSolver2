@@ -129,6 +129,7 @@ public class SudokuSolver2 {
 			if(result && checkColumn(index, value)) result = false; // Short-circuit evaluation to avoid unnecessary computations
 			if(result && checkBox(index, value)) result = false; // Short-circuit evaluation to avoid unnecessary computations
 		}
+		if(DEBUG) System.out.println("DEBUG - position " + index + " checked, value " + value + " is " + (result ? "ok" : "not ok"));
 		return result;
 	}
 	
@@ -211,7 +212,10 @@ public class SudokuSolver2 {
 	 * Returns true when the puzzle is solved, false if it was unable to solve it.
 	 */
 	public boolean solve(){
-		return solvePosition(1, 1);
+		for(int i = 1; i < 10; i++){
+			if(solvePosition(1, i)) return true;
+		}
+		return false;
 	}
 	
 	/*

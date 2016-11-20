@@ -10,9 +10,9 @@ public class test_001 {
 		int solvedBoard[];
 		boolean isCorrect = true;
 		SudokuSolver2 solveIt = new SudokuSolver2(puzzle);
+		solvedBoard = solveIt.getActiveBoard();
 		if(solveIt.solve()){
 			System.out.println("Got a solution after " + solveIt.getIterations() + " iterations.");
-			solvedBoard = solveIt.getActiveBoard();
 			for(int i = 0; i < solvedBoard.length; i++){
 				if(solvedBoard[i] != solution[i]){
 					isCorrect = false;
@@ -22,6 +22,12 @@ public class test_001 {
 		}
 		else{
 			System.out.println("Unable to solve the puzzle after " + solveIt.getIterations() + " iterations.");
+		}
+		for(int i = 0; i < 9; i++){
+			for(int k = 0; k < 9; k++){
+				System.out.print(solvedBoard[i * 9 + k] + " ");
+			}
+			System.out.println();
 		}
 	}
 
