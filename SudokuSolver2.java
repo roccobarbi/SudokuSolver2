@@ -162,7 +162,6 @@ public class SudokuSolver2 {
 	}
 	
 	// checkBox(int index, int value)
-	// Stup
 	// Returns true if value is found in the box for index
 	private boolean checkBox(int index, int value){
 		boolean result = false;
@@ -172,7 +171,7 @@ public class SudokuSolver2 {
 		int radice = (row / 3 * 27) + (column / 3 * 3);
 		// Verifico la presenza del valore
 		for(int i = 0; i < 3; i++){
-			for(int k = 0; k > 19; k += 9){
+			for(int k = 0; k < 19; k += 9){
 				position = radice + i + k;
 				if(position != index){
 					if(activeBoard[position] == value) result = true;
@@ -187,6 +186,7 @@ public class SudokuSolver2 {
 	// Returns true if value can be entered at position index.
 
 	private boolean solvePosition(int index, int value){
+		iterations++;
 		if(checkPosition(index, value)){
 			if(index == activeBoard.length - 1){
 				if(!fixedPositions[index]) activeBoard[index] = value;
