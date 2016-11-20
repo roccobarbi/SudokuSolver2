@@ -6,7 +6,7 @@ package SudokuSolver2;
 
 public class SudokuSolver2 {
 	private static final int BOARD_LENGTH = 81;
-	private static final boolean DEBUG = true;
+	private static final boolean DEBUG = false;
 	
 	private int[] activeBoard;
 	private final int[] startingBoard;
